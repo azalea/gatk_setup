@@ -25,7 +25,7 @@ sudo apt-get install libncurses5-dev
 
 # required for add-apt-repository
 # ref: http://stackoverflow.com/a/16032073/1292238
-sudo qpt-get install python-software-properties
+sudo apt-get install python-software-properties
 # for Ubuntu 12.10 or later
 # sudo apt-get install software-properties-common
 
