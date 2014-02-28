@@ -5,7 +5,7 @@ Clone and run this on a new EC2 instance running Ubuntu 12.04.2 LTS:
     cd $HOME
     sudo apt-get install -y git-core
     git clone https://github.com/azalea/gatk_setup.git
-    ./setup/setup.sh   
+    ./gatk_setup/setup.sh   
 
 Most of the setup will run automatically.
 Exceptions:
