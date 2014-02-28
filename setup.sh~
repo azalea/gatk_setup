@@ -1,13 +1,11 @@
 #!/bin/bash
 # Simple setup.sh for configuring Ubuntu 12.04 LTS EC2 instance to setup GATK and other software packages required for GATK best practice.
 
-#### Get GATK file for install ####
+#### Set GATK downloading url ####
 # Currently you cannot download GATK from command line.
-# Has to download it from a machine with a brower and upload it somewhere like an FTP or Dropbox
-# Or you can scp the file from the machine that downloaded it to the machine you want to install on.
+# Has to download it from a brower and upload it somewhere like an FTP or Dropbox
 # ref: http://gatkforums.broadinstitute.org/discussion/comment/12092/#Comment_12092
 GATK_URL='https://dl.dropboxusercontent.com/u/308058/GenomeAnalysisTK-2.8-1.tar.bz2'
-wget $GATK_URL
 
 #### Set installation path ####
 INSTALL_DIR='/usr/bin'
@@ -34,6 +32,7 @@ sudo apt-get install oracle-java7-installer
 
 #### Setup GATK ####
 # !!!!FIXME: need to find out the official download link.
+wget $GATK_URL
 tar xvjf GenomeAnalysisTK-2.8-1.tar.bz2; rm $_
 mv GenomeAnalysisTK-2.8-1-* GenomeAnalysisTK-2.8-1
 
