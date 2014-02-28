@@ -23,6 +23,12 @@ sudo apt-get install unzip
 # ref: http://askubuntu.com/questions/78749/what-provides-curses-headers-named-curses-h
 sudo apt-get install libncurses5-dev
 
+# required for add-apt-repository
+# ref: http://stackoverflow.com/a/16032073/1292238
+sudo qpt-get install python-software-properties
+# for Ubuntu 12.10 or later
+# sudo apt-get install software-properties-common
+
 #### Setup java 7 ####
 # GATK 2.6 or later requires Java Runtime Environment version 1.7. 
 # ref: http://www.ubuntugeek.com/how-to-install-oracle-java-7-in-ubuntu-12-04.html
