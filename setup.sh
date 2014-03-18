@@ -6,8 +6,8 @@
 # Has to download it from a machine with a brower and upload it somewhere like an FTP or Dropbox
 # Or you can scp the file from the machine that downloaded it to the machine you want to install on.
 # ref: http://gatkforums.broadinstitute.org/discussion/comment/12092/#Comment_12092
-#GATK_URL='https://dl.dropboxusercontent.com/u/308058/GenomeAnalysisTK-2.8-1.tar.bz2'
-GATK_URL='https://dl.dropboxusercontent.com/u/308058/GenomeAnalysisTK-3.1-1.tar.bz2'
+GATK_VERSION="3.1-1"
+GATK_URL="https://dl.dropboxusercontent.com/u/308058/GenomeAnalysisTK-$GATK_VERSION.tar.bz2"
 wget $GATK_URL
 
 #### Set installation path ####
@@ -16,7 +16,7 @@ JAR_EXT_DIR='/usr/lib/jvm/java-7-oracle/jre/lib/ext'
 sudo mkdir -p $JAR_EXT_DIR
 
 #### Install dependency packages ####
-sudo apt-get install build-essential 
+sudo apt-get install build-essential
 sudo apt-get install zlib1g-dev
 sudo apt-get install unzip
 
@@ -31,7 +31,7 @@ sudo apt-get install python-software-properties
 # sudo apt-get install software-properties-common
 
 #### Setup java 7 ####
-# GATK 2.6 or later requires Java Runtime Environment version 1.7. 
+# GATK 2.6 or later requires Java Runtime Environment version 1.7.
 # ref: http://www.ubuntugeek.com/how-to-install-oracle-java-7-in-ubuntu-12-04.html
 sudo apt-get purge openjdk*
 
@@ -40,19 +40,19 @@ sudo apt-get update
 sudo apt-get install oracle-java7-installer
 
 #### Setup GATK ####
-# !!!!FIXME: need to find out the official download link.
-tar xvjf GenomeAnalysisTK-3.1-1.tar.bz2; rm $_
-mv GenomeAnalysisTK-3.1-1-* GenomeAnalysisTK-3.1-1
+mkdir -p GenomeAnalysisTK-$GATK_VERSION
+tar xvjf GenomeAnalysisTK-$GATK_VERSION.tar.bz2 -C GenomeAnalysisTK-$GATK_VERSION
+rm GenomeAnalysisTK-$GATK_VERSION.tar.bz2
 
-sudo mv GenomeAnalysisTK-3.1-1 $JAR_EXT_DIR
-echo "GATK_HOME=$JAR_EXT_DIR/GenomeAnalysisTK-3.1-1" >> ~/.bashrc
-echo "alias GATK='java -jar $JAR_EXT_DIR/GenomeAnalysisTK-3.1-1/GenomeAnalysisTK.jar'" >> ~/.bashrc
+sudo mv GenomeAnalysisTK-$GATK_VERSION $JAR_EXT_DIR
+echo "GATK_HOME=$JAR_EXT_DIR/GenomeAnalysisTK-$GATK_VERSION" >> ~/.bashrc
+echo "alias GATK='java -jar $JAR_EXT_DIR/GenomeAnalysisTK-$GATK_VERSION/GenomeAnalysisTK.jar'" >> ~/.bashrc
 
 #### Software packages required for GATK best practice
 # ref: http://gatkforums.broadinstitute.org/discussion/2899/howto-install-all-software-packages-required-to-follow-the-gatk-best-practices
 
 # bwa
-# although you can apt-get install bwa, but since it is updated frequently, 
+# although you can apt-get install bwa, but since it is updated frequently,
 # the version in the official repository may be outdated.
 wget http://sourceforge.net/projects/bio-bwa/files/bwa-0.7.7.tar.bz2
 tar xvjf bwa-0.7.7.tar.bz2; rm $_
@@ -63,7 +63,7 @@ cd ..
 rm -r bwa-0.7.7
 
 # samtools
-# although you can apt-get install samtools, but since it is updated frequently, 
+# although you can apt-get install samtools, but since it is updated frequently,
 # the version in the official repository may be outdated.
 wget http://sourceforge.net/projects/samtools/files/samtools/0.1.19/samtools-0.1.19.tar.bz2
 tar xvjf samtools-0.1.19.tar.bz2; rm $_
@@ -77,7 +77,7 @@ rm -r samtools-0.1.19
 wget https://github.com/samtools/htslib/archive/master.zip
 mv master.zip htslib-master.zip
 unzip htslib-master.zip; rm $_
-cd htslib-master 
+cd htslib-master
 make
 sudo cp htscmd $INSTALL_DIR
 cd ..
@@ -92,5 +92,5 @@ echo "PICARD_HOME=$JAR_EXT_DIR/picard-tools-1.108" >> ~/.bashrc
 # R and gsalib
 sudo apt-get install r-base
 echo "install.packages('gsalib', repos='http://cran.us.r-project.org')" > gsalib.R
-sudo Rscript gsalib.R 
+sudo Rscript gsalib.R
 rm gsalib.R
