@@ -6,7 +6,8 @@
 # Has to download it from a machine with a brower and upload it somewhere like an FTP or Dropbox
 # Or you can scp the file from the machine that downloaded it to the machine you want to install on.
 # ref: http://gatkforums.broadinstitute.org/discussion/comment/12092/#Comment_12092
-GATK_URL='https://dl.dropboxusercontent.com/u/308058/GenomeAnalysisTK-2.8-1.tar.bz2'
+#GATK_URL='https://dl.dropboxusercontent.com/u/308058/GenomeAnalysisTK-2.8-1.tar.bz2'
+GATK_URL='https://dl.dropboxusercontent.com/u/308058/GenomeAnalysisTK-3.1-1.tar.bz2'
 wget $GATK_URL
 
 #### Set installation path ####
@@ -40,12 +41,12 @@ sudo apt-get install oracle-java7-installer
 
 #### Setup GATK ####
 # !!!!FIXME: need to find out the official download link.
-tar xvjf GenomeAnalysisTK-2.8-1.tar.bz2; rm $_
-mv GenomeAnalysisTK-2.8-1-* GenomeAnalysisTK-2.8-1
+tar xvjf GenomeAnalysisTK-3.1-1.tar.bz2; rm $_
+mv GenomeAnalysisTK-3.1-1-* GenomeAnalysisTK-3.1-1
 
-sudo mv GenomeAnalysisTK-2.8-1 $JAR_EXT_DIR
-echo "GATK_HOME=$JAR_EXT_DIR/GenomeAnalysisTK-2.8-1" >> ~/.bashrc
-echo "alias GATK='java -jar $JAR_EXT_DIR/GenomeAnalysisTK-2.8-1/GenomeAnalysisTK.jar'" >> ~/.bashrc
+sudo mv GenomeAnalysisTK-3.1-1 $JAR_EXT_DIR
+echo "GATK_HOME=$JAR_EXT_DIR/GenomeAnalysisTK-3.1-1" >> ~/.bashrc
+echo "alias GATK='java -jar $JAR_EXT_DIR/GenomeAnalysisTK-3.1-1/GenomeAnalysisTK.jar'" >> ~/.bashrc
 
 #### Software packages required for GATK best practice
 # ref: http://gatkforums.broadinstitute.org/discussion/2899/howto-install-all-software-packages-required-to-follow-the-gatk-best-practices
