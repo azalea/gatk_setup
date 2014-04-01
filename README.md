@@ -1,4 +1,4 @@
-Setup [GATK](http://www.broadinstitute.org/gatk/) and [software packages required to follow the GATK Best Practices](software packages required to follow the GATK Best Practices) on Ubuntu 12.04 LTS.
+Setup [GATK](http://www.broadinstitute.org/gatk/) and [software packages required to follow the GATK Best Practices](http://gatkforums.broadinstitute.org/discussion/2899/howto-install-all-software-packages-required-to-follow-the-gatk-best-practices) on Ubuntu 12.04 LTS.
 
 You need to register an account at GATK, download the .tar.bz2 file, put it online somewhere, and change lines 9 and 10 of setup.sh
 
